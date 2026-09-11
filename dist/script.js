@@ -5,7 +5,7 @@ const STATIONS = [
     { id: "Estação 3", title: "Estação 3: Aplicativo Curioso", file: "models/estacao3.json" }
 ];
 let questions = [];
-const TIME = 10;
+const TIME = 20;
 let score = 0;
 let currentStationIndex = 0;
 let currentQuestionIndex = 0;
@@ -123,7 +123,7 @@ function showPopUpResult(answer) {
     btn.textContent = "Ok";
     title.textContent = correct ? "Resposta Correta!" : "Resposta Incorreta";
     const streakFormat = streak > 1 ? "acertos" : "acerto";
-    message.textContent = correct ? `Sua Sequência atual é de ${streak} ${streakFormat}` : "Mais sorte na próxima vez";
+    message.textContent = correct ? `Sua sequência atual é de ${streak} ${streakFormat}` : "Mais sorte na próxima vez";
     popup.appendChild(title);
     popup.appendChild(message);
     popup.appendChild(btn);

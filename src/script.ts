@@ -9,7 +9,7 @@ const STATIONS: StationConf[] = [
 ];
 
 let questions: Question[] = []
-const TIME = 10;
+const TIME = 20;
 let score = 0;
 let currentStationIndex = 0;
 let currentQuestionIndex = 0;
