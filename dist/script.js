@@ -156,7 +156,7 @@ function showResults() {
         return;
     quizScreen?.classList.add("hide");
     resultScreen?.classList.remove("hide");
-    // Salva pontuação na memória da sessão atual
+    
     sessionScores[currentStation.id] = score;
     if (finalScoreElement) {
         finalScoreElement.innerText = `Você acertou ${score} questões de ${questions.length} nesta etapa.`;
@@ -173,7 +173,7 @@ function showResults() {
             if (resultsElement)
                 resultsElement.innerText = formatSessionScores();
             nextBtn.onclick = () => {
-                sessionScores = {}; // Limpa memória
+                sessionScores = {}; 
                 if (resultsElement)
                     resultsElement.innerText = "";
                 loadStation(0);
