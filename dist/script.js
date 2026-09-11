@@ -1,16 +1,18 @@
 const STATIONS = [
-    { id: "estacao1", title: "Estação 1: Fundamentos", file: "models/estacao1.json" },
-    { id: "estacao2", title: "Estação 2: Imagens e Identificação", file: "models/estacao2.json" }
+    { id: "Estação 5", title: "Estação 5: Postar ou não", file: "models/estacao5.json" },
+    { id: "Estação 1", title: "Estação 1: Fundamentos", file: "models/estacao1.json" },
+    { id: "Estação 2", title: "Estação 2: Imagens e Identificação", file: "models/estacao2.json" },
+    { id: "Estação 3", title: "Estação 3: Aplicativo Curioso", file: "models/estacao3.json" }
 ];
-const STORAGE_KEY = 'quiz_station_progress';
-let questions = [];
 const TIME = 10;
+let questions = [];
 let score = 0;
 let currentStationIndex = 0;
 let currentQuestionIndex = 0;
 let timeLeft = TIME;
 let streak = 0;
 let timerId = null;
+let sessionScores = {};
 const quizTitle = document.getElementById('title');
 const quizScreen = document.getElementById('quiz-screen');
 const resultScreen = document.getElementById('result-screen');
@@ -19,33 +21,25 @@ const timerDisplayElement = document.getElementById('timer-display');
 const questionTextElement = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
 const finalScoreElement = document.getElementById('final-score');
+const resultsElement = document.getElementById("results");
+const nextBtn = document.getElementById('next-station-btn');
 function startQuiz() {
     score = 0;
     streak = 0;
     currentQuestionIndex = 0;
     showQuestion();
 }
-function getProgress() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : { completedStations: [], scores: {} };
-}
-function saveStationCompletion(stationId, stationScore) {
-    const progress = getProgress();
-    if (!progress.completedStations.includes(stationId)) {
-        progress.completedStations.push(stationId);
-    }
-    progress.scores[stationId] = stationScore;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-}
 async function loadStation(index) {
-    quizTitle.innerText = '';
+    if (quizTitle)
+        quizTitle.innerText = '';
     if (index < 0 || index >= STATIONS.length)
         return;
     currentStationIndex = index;
     const station = STATIONS[currentStationIndex];
     if (!station)
         return;
-    quizTitle.innerText = station.title;
+    if (quizTitle)
+        quizTitle.innerText = station.title;
     try {
         const response = await fetch(station.file);
         if (!response.ok)
@@ -56,7 +50,7 @@ async function loadStation(index) {
         startQuiz();
     }
     catch (error) {
-        console.error("falhas na request ", error);
+        console.error("Falha na requisição: ", error);
     }
 }
 function showQuestion() {
@@ -66,14 +60,20 @@ function showQuestion() {
         return;
     }
     questionNumberElement.innerText = `Questão ${currentQuestionIndex + 1} de ${questions.length}`;
-    questionTextElement.innerText = currentQuestion.question;
+    if (currentQuestion.question) {
+        questionTextElement.innerText = currentQuestion.question;
+        questionTextElement.style.display = "block";
+    }
+    else {
+        questionTextElement.innerText = "";
+        questionTextElement.style.display = "none";
+    }
     if (currentQuestion.image) {
         const img = document.createElement('img');
         img.src = currentQuestion.image;
         img.classList.add('question-img');
         optionsContainer.appendChild(img);
     }
-    console.log(currentQuestion, " funcionou!!!");
     currentQuestion.options.forEach((option, index) => {
         const button = document.createElement('button');
         button.classList.add("option-btn");
@@ -113,13 +113,13 @@ function showPopUpResult(answer) {
     const main = document.getElementById('main');
     main.classList.add("blur");
     const popup = document.getElementById('popup');
-    const title = document.createElement('h1');
-    const message = document.createElement('h3');
     popup.innerHTML = '';
     popup.classList.remove("correct", "incorrect");
     const correct = answer === currentQuestion.correct;
-    const btn = document.createElement('button');
     const popClass = correct ? "correct" : "incorrect";
+    const title = document.createElement('h1');
+    const message = document.createElement('h3');
+    const btn = document.createElement('button');
     btn.textContent = "Ok";
     title.textContent = correct ? "Resposta Correta!" : "Resposta Incorreta";
     const streakFormat = streak > 1 ? "acertos" : "acerto";
@@ -143,6 +143,12 @@ function nextQuestion() {
         showResults();
     }
 }
+function formatSessionScores() {
+    const detailsScore = Object.entries(sessionScores)
+        .map(([estacao, pontos]) => `${estacao}: ${pontos} acertos`)
+        .join("\n");
+    return `Pontuação Total:\n${detailsScore}`;
+}
 function showResults() {
     resetTimer();
     const currentStation = STATIONS[currentStationIndex];
@@ -150,22 +156,27 @@ function showResults() {
         return;
     quizScreen?.classList.add("hide");
     resultScreen?.classList.remove("hide");
-    saveStationCompletion(currentStation.id, score);
-    console.log(score);
+    // Salva pontuação na memória da sessão atual
+    sessionScores[currentStation.id] = score;
     if (finalScoreElement) {
-        finalScoreElement.innerText = `Você acertou ${score} questões de ${questions.length}`;
+        finalScoreElement.innerText = `Você acertou ${score} questões de ${questions.length} nesta etapa.`;
     }
-    const nextBtn = document.getElementById('next-station-btn');
     if (nextBtn) {
         if (currentStationIndex + 1 < STATIONS.length) {
             nextBtn.innerText = "Avançar para a próxima estação";
+            if (resultsElement)
+                resultsElement.innerText = "";
             nextBtn.onclick = () => loadStation(currentStationIndex + 1);
         }
         else {
             nextBtn.innerText = "Reiniciar Quiz";
+            if (resultsElement)
+                resultsElement.innerText = formatSessionScores();
             nextBtn.onclick = () => {
+                sessionScores = {}; // Limpa memória
+                if (resultsElement)
+                    resultsElement.innerText = "";
                 loadStation(0);
-                localStorage.removeItem(STORAGE_KEY);
             };
         }
     }
@@ -181,8 +192,6 @@ function startTimer() {
         timeLeft--;
         timerDisplayElement.innerText = `Tempo restante: ${timeLeft}s`;
         if (timeLeft <= 0) {
-            if (timerId)
-                clearInterval(timerId);
             resetTimer();
             streak = 0;
             nextQuestion();
@@ -190,14 +199,7 @@ function startTimer() {
     }, 1000);
 }
 document.addEventListener('DOMContentLoaded', () => {
-    const progress = getProgress();
-    const nextUnfinishedIndex = STATIONS.findIndex(s => !progress.completedStations.includes(s.id));
-    if (nextUnfinishedIndex !== 1) {
-        loadStation(nextUnfinishedIndex);
-    }
-    else {
-        loadStation(0);
-    }
+    loadStation(0);
 });
 export {};
 //# sourceMappingURL=script.js.map

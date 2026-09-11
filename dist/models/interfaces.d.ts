@@ -5,9 +5,9 @@ export interface StationConf {
 }
 export interface Question {
     id?: string | number;
-    question: string;
+    question?: string;
+    image?: string;
     type?: "text" | "image";
-    image?: "string";
     options: string[];
     correct: number;
 }

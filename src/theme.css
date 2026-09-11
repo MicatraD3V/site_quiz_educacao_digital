@@ -184,7 +184,10 @@ main.blur{
     list-style: none;
     padding: 0;
 }
-
+.question-img{
+    width: 458px;
+    height: 358px;
+}
 .option-btn {
     width: 100%;
     padding: 18px;

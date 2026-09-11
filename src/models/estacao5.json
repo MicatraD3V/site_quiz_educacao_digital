@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "question": "A imagem mostra o uniforme da escola com o nome da instituição. Qual pode ser a consequência dessa publicação?",
+    "image": "imgs/quest1.png",
+    "type": "text",
+    "options": [
+      "Pode expor a sua instituição e facilitar a sua identificação.",
+      "Não tem consequência."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 2,
+    "question": "A imagem mostra a sua localização atual. Qual pode ser a consequência dessa publicação?",
+    "image": "imgs/quest2.png",
+    "type": "text",
+    "options": [
+      "Pode revelar onde você está e colocar sua segurança em risco.",
+      "Não tem consequência."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 3,
+    "question": "A imagem mostra um amigo em uma situação constrangedora. Qual pode ser a consequência dessa publicação?",
+    "image": "imgs/quest3.png",
+    "type": "text",
+    "options": [
+      "Pode causar problemas para a pessoa da foto e afetar a sua reputação.",
+      "Não tem consequência."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 4,
+    "question": "A imagem mostra um certificado de conquista pessoal. Qual pode ser a consequência dessa publicação?",
+    "image": "imgs/quest4.png",
+    "type": "text",
+    "options": [
+      "Pode ser positiva, mostrando sua dedicação e conquistas.",
+      "Não tem consequência."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 5,
+    "question": "A imagem mostra dados pessoais em um celular. Qual pode ser a consequência dessa publicação?",
+    "image": "imgs/quest5.png",
+    "type": "text",
+    "options": [
+      "Pode ser usada para golpes, fraudes e outros riscos.",
+      "Não tem consequência."
+    ],
+    "correct": 0
+  }
+]

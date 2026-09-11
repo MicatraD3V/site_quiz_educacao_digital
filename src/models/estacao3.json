@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "question": "Um jogo pede acesso à sua localização. Aceito ou não aceito?",
+        "type": "text",
+        "options": [
+            "Sim",
+            "Não"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 2,
+        "question": "Um app de lanterna pede acesso aos seus contatos. Aceito ou não aceito?",
+        "options": [
+            "Sim",
+            "Não"
+        ],
+        "correct": 1
+    }
+]
