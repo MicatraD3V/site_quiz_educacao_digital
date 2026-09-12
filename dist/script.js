@@ -1,11 +1,11 @@
 const STATIONS = [
-    { id: "Estação 5", title: "Estação 5: Postar ou não", file: "models/estacao5.json" },
     { id: "Estação 1", title: "Estação 1: Fundamentos", file: "models/estacao1.json" },
     { id: "Estação 2", title: "Estação 2: Imagens e Identificação", file: "models/estacao2.json" },
-    { id: "Estação 3", title: "Estação 3: Aplicativo Curioso", file: "models/estacao3.json" }
+    { id: "Estação 3", title: "Estação 3: Aplicativo Curioso", file: "models/estacao3.json" },
+    { id: "Estação 5", title: "Estação 5: Postar ou não", file: "models/estacao5.json" }
 ];
 let questions = [];
-const TIME = 20;
+const TIME = 40;
 let score = 0;
 let currentStationIndex = 0;
 let currentQuestionIndex = 0;
@@ -38,6 +38,8 @@ async function loadStation(index) {
     const station = STATIONS[currentStationIndex];
     if (!station)
         return;
+    document.body.className = "";
+    document.body.classList.add(`estacao-${station.id.replace("Estação ", "")}`);
     if (quizTitle)
         quizTitle.innerText = station.title;
     try {
