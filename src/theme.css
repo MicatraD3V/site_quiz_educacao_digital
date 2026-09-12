@@ -4,7 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
         font-family: "Poppins", sans-serif;
     background: radial-gradient(
     ellipse at center,
@@ -16,11 +16,14 @@ body {
     margin: 0;
 }
 main.blur{
-    width: 100%;
-    height: 100dvh;
-    background-color: #00030e42;
-    backdrop-filter: blur(5px);
     position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 9998;
 }
 .quiz-container {
     background: rgb(29, 31, 55);
@@ -83,24 +86,28 @@ main.blur{
 }
 #popup{
     width: 400px;
-    height: max-content;
+    max-width: calc(100% - 40px);
+    max-height: 80vh;
     position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: none;
+    overflow-y: auto;
+    box-sizing: border-box;
     border-radius: 8px;
+    padding: 40px;
+    z-index: 9999;
     animation: popup-enter 0.2s ease;
-    position: fixed;
-    z-index: 2000;
-    padding: 64px;
-    
 }
 @keyframes popup-enter{
     from{
         opacity: 0;
-        transform: scale(0.90);
+        
     }
     to{
         opacity: 1;
-        transform: scale(1);
+        
     }
 }
 #popup.correct{
@@ -138,7 +145,7 @@ main.blur{
 }
 .filter{
     display: flex;
-    position: fixed;
+    position: relative;
     justify-content: center;
     align-items: center;
     body {
@@ -146,7 +153,7 @@ main.blur{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
         font-family: "Bricolage Grotesque";
     background: radial-gradient(
     ellipse at center,
@@ -158,11 +165,14 @@ main.blur{
     margin: 0;
 }
 main.blur{
-    width: 100%;
-    height: 100dvh;
-    background-color: #00030e42;
-    backdrop-filter: blur(5px);
     position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 9998;
 }
 .quiz-container {
     background: rgb(29, 31, 55);
@@ -224,24 +234,28 @@ main.blur{
 }
 #popup{
     width: 400px;
-    height: max-content;
+    max-width: calc(100% - 40px);
+    max-height: 80vh;
     position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: none;
+    overflow-y: auto;
+    box-sizing: border-box;
     border-radius: 8px;
-    animation: popup-enter 0.2s ease;
-    position: fixed;
-    z-index: 2000;
-    padding: 64px;
-    
+    padding: 40px;
+    z-index: 9999;
+    animation: popup-enter 0.2s ease;  
 }
 @keyframes popup-enter{
     from{
         opacity: 0;
-        transform: scale(0.90);
+        
     }
     to{
         opacity: 1;
-        transform: scale(1);
+        
     }
 }
 #popup.correct{
@@ -277,7 +291,7 @@ main.blur{
 }
 .filter{
     display: flex;
-    position: fixed;
+    position: relative;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -367,9 +381,10 @@ main.blur{
     #popup {
         width: calc(100% - 40px);
         max-width: 360px;
-        box-sizing: border-box;
+        max-height: 80vh;
         padding: 30px 22px;
-        border-radius: 14px;
+        overflow-y: auto;
+        box-sizing: border-box;
     }
 
     #popup h1 {
@@ -460,4 +475,115 @@ main.blur{
     z-index: 3000;
     animation: bg-blink 2.5s linear infinite;
     background-color: #00000110;
+}
+/*PALETAS DAS ESTAÇÕES*/
+
+body.estacao-1 {
+    background: radial-gradient(
+        ellipse at center,
+        #123b8f 0%,
+        #071d4d 40%,
+        #020817 75%,
+        #000000 100%
+    );
+}
+
+body.estacao-1 .quiz-container {
+    background: #172b50;
+}
+
+body.estacao-1 .option-btn {
+    background: #0b1d3a;
+}
+
+body.estacao-1 .option-btn:hover {
+    background: #163b73;
+}
+
+body.estacao-1 .title {
+    color: #5da9ff;
+}
+
+
+/* Estação 2 - Roxo */
+body.estacao-2 {
+    background: radial-gradient(
+        ellipse at center,
+        #5b238f 0%,
+        #2b124d 40%,
+        #10051c 75%,
+        #000000 100%
+    );
+}
+
+body.estacao-2 .quiz-container {
+    background: #35204f;
+}
+
+body.estacao-2 .option-btn {
+    background: #241335;
+}
+
+body.estacao-2 .option-btn:hover {
+    background: #4a246d;
+}
+
+body.estacao-2 .title {
+    color: #c477ff;
+}
+
+
+/* Estação 3 - Verde */
+body.estacao-3 {
+    background: radial-gradient(
+        ellipse at center,
+        #176b4a 0%,
+        #0b3a2a 40%,
+        #031810 75%,
+        #000000 100%
+    );
+}
+
+body.estacao-3 .quiz-container {
+    background: #173d31;
+}
+
+body.estacao-3 .option-btn {
+    background: #0b2920;
+}
+
+body.estacao-3 .option-btn:hover {
+    background: #14553e;
+}
+
+body.estacao-3 .title {
+    color: #58d99b;
+}
+
+
+/* Estação 5 - Laranja */
+body.estacao-5 {
+    background: radial-gradient(
+        ellipse at center,
+        #9a4b16 0%,
+        #54270d 40%,
+        #1d0c03 75%,
+        #000000 100%
+    );
+}
+
+body.estacao-5 .quiz-container {
+    background: #4a2a18;
+}
+
+body.estacao-5 .option-btn {
+    background: #2d180b;
+}
+
+body.estacao-5 .option-btn:hover {
+    background: #663515;
+}
+
+body.estacao-5 .title {
+    color: #ffad5c;
 }
