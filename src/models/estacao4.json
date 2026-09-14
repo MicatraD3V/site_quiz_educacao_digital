@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "question": "O que é um deepfake?",
+    "type": "text",
+    "options": [
+      "Um jogo online",
+      "Um conteúdo manipulado com inteligência artificial",
+      "Um vírus",
+      "Uma rede social"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 2,
+    "question": "Qual é uma atitude segura ao receber uma notícia suspeita?",
+    "type": "text",
+    "options": [
+      "Compartilhar",
+      "Curtir",
+      "Verificar a fonte",
+      "Ignorar sempre"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 3,
+    "question": "Qual situação pode indicar que um vídeo foi manipulado?",
+    "type": "text",
+    "options": [
+      "A pessoa aparece falando normalmente",
+      "O vídeo tem poucas visualizações",
+      "Movimentos ou expressões parecem estranhos",
+      "O vídeo tem som"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 4,
+    "question": "Você recebe um vídeo de uma pessoa famosa fazendo uma declaração polêmica. O vídeo parece muito real. O que fazer?",
+    "type": "text",
+    "options": [
+      "Compartilhar porque parece verdadeiro",
+      "Verificar se fontes confiáveis confirmam a informação",
+      "Acreditar se seus amigos também receberam",
+      "Comentar dizendo que é verdade"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 5,
+    "question": "Uma imagem criada por IA está sendo compartilhada como se fosse uma foto real de um acontecimento. Qual é a melhor forma de descobrir a verdade?",
+    "type": "text",
+    "options": [
+      "Ver quantas curtidas a imagem recebeu",
+      "Perguntar apenas aos amigos",
+      "Pesquisar a origem da imagem e comparar com fontes confiáveis",
+      "Acreditar porque a imagem parece real"
+    ],
+    "correct": 2
+  }
+]
