@@ -2,10 +2,11 @@ import { StationConf, Question } from "./models/interfaces";
 
 
 const STATIONS: StationConf[] = [
-    { id: "Estação 5", title: "Estação 5: Postar ou não", file: "models/estacao5.json" },
-    { id: "Estação 1", title: "Estação 1: Fundamentos", file: "models/estacao1.json" },
-    { id: "Estação 2", title: "Estação 2: Imagens e Identificação", file: "models/estacao2.json" },
-    { id: "Estação 3", title: "Estação 3: Aplicativo Curioso", file: "models/estacao3.json" }
+    { id: "Estação 1", title: "Estação 1: A Senha Vazou", file: "models/estacao1.json" },
+    { id: "Estação 2", title: "Estação 2: Não Clique!", file: "models/estacao2.json" },
+    { id: "Estação 3", title: "Estação 3: O Aplicativo Curioso", file: "models/estacao3.json" },
+    { id: "Estação 4", title: "Estação 4 Não Acredite nos Seus Olhos", file: "models/estacao4.json"},
+    { id: "Estação 5", title: "Estação 5: Postar ou não Postar?", file: "models/estacao5.json" },
 ];
 
 let questions: Question[] = []
@@ -28,6 +29,7 @@ const optionsContainer = document.getElementById('options-container') as HTMLDiv
 const finalScoreElement = document.getElementById('final-score') as HTMLElement;
 const resultsElement = document.getElementById("results") as HTMLElement;
 const nextBtn = document.getElementById('next-station-btn') as HTMLButtonElement;
+
 
 function startQuiz(): void {
     score = 0;
@@ -54,6 +56,9 @@ async function loadStation(index: number): Promise<void> {
         
         quizScreen?.classList.remove('hide');
         resultScreen?.classList.add('hide');
+        document.body.className = "";
+        const stationClass = `estacao-${station.id.replace("Estação ","")}`;
+        document.body.classList.add(stationClass);
         startQuiz();
     } catch (error) {
         console.error("Falha na requisição: ", error);
@@ -112,7 +117,9 @@ function showQuestion(): void {
 function selectAnswer(selectedAnswer: number): void {
     resetTimer();
     const currentQuestion = questions[currentQuestionIndex];
+    
     if (!currentQuestion) return;
+    
     
     if (selectedAnswer === currentQuestion.correct) {
         score++;
@@ -218,12 +225,13 @@ function resetTimer(): void {
     timeLeft = TIME;
 }
 
+
+
 function startTimer(): void {
     timerDisplayElement.innerText = `Tempo restante: ${timeLeft}s`;
     timerId = window.setInterval(() => {
         timeLeft--;
         timerDisplayElement.innerText = `Tempo restante: ${timeLeft}s`; 
-        
         if (timeLeft <= 0) {
             resetTimer();
             streak = 0;
