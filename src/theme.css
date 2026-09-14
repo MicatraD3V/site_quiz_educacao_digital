@@ -476,7 +476,7 @@ main.blur{
     animation: bg-blink 2.5s linear infinite;
     background-color: #00000110;
 }
-/*PALETAS DAS ESTAÇÕES*/
+
 
 body.estacao-1 {
     background: radial-gradient(
@@ -505,7 +505,7 @@ body.estacao-1 .title {
 }
 
 
-/* Estação 2 - Roxo */
+
 body.estacao-2 {
     background: radial-gradient(
         ellipse at center,
@@ -533,7 +533,7 @@ body.estacao-2 .title {
 }
 
 
-/* Estação 3 - Verde */
+
 body.estacao-3 {
     background: radial-gradient(
         ellipse at center,
