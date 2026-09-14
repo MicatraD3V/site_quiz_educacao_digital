@@ -1,24 +1,62 @@
 [
   {
     "id": 1,
-    "question": "O que typescript adiciona ao javaScript?",
+    "question": "Qual é uma característica de uma senha segura?",
     "type": "text",
     "options": [
-      "Tipagem estática",
-      "Banco de dados",
-      "Gateway de APIs"
+      "Ter apenas números",
+      "Ser o nome da pessoa",
+      "Ter letras, números e símbolos",
+      "Ser \"123456\""
     ],
-    "correct": 0
+    "correct": 2
   },
   {
     "id": 2,
-    "question": "Qual dessas é uma linguagem orientada a objetos?",
+    "question": "Devemos compartilhar nossa senha com outras pessoas?",
     "type": "text",
     "options": [
-      "C#",
-      "C",
-      "Assembly"
+      "Sim, com qualquer amigo",
+      "Sim, pela internet",
+      "Apenas em redes sociais",
+      "Não, devemos mantê-la em segredo"
     ],
-    "correct": 0
+    "correct": 3
+  },
+  {
+    "id": 3,
+    "question": "O que é a autenticação em dois fatores (2FA)?",
+    "type": "text",
+    "options": [
+      "Usar duas senhas iguais",
+      "Uma segunda forma de confirmar o acesso à conta",
+      "Trocar a senha todos os dias",
+      "Compartilhar a senha com alguém"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 4,
+    "question": "O que fazer ao descobrir que sua senha vazou?",
+    "type": "text",
+    "options": [
+      "Continuar usando a mesma senha",
+      "Ignorar o problema",
+      "Trocar a senha e ativar o 2FA",
+      "Publicar a senha para avisar outras pessoas"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 5,
+    "question": "Qual situação pode causar o vazamento de uma senha mesmo sem compartilhá-la?",
+    "type": "text",
+    "options": [
+      "Usar autenticação em dois fatores",
+      "Atualizar os aplicativos",
+      "Cair em um golpe de phishing ou acessar um site falso",
+      "Criar uma senha forte"
+    ],
+    "correct": 2
   }
 ]
