@@ -1,23 +1,61 @@
 [
   {
     "id": 1,
-    "question": "Qual destas imagens representa a logo do TypeScript?",
-    "type": "image",
+    "question": "Você recebe um e-mail dizendo que sua conta será bloqueada e pedindo para clicar em um link. O que você deve fazer?",
+    "type": "text",
     "options": [
-      "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png",
-      "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png",
-      "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png"
+      "Clicar imediatamente",
+      "Verificar a mensagem e acessar o site oficial por conta própria",
+      "Responder com seus dados",
+      "Encaminhar para amigos"
     ],
-    "correct": 0
+    "correct": 1
   },
   {
     "id": 2,
-    "question": "Identifique a sintaxe correta de uma Arrow Function:",
+    "question": "Uma pessoa desconhecida envia: \"Parabéns! Você ganhou um prêmio. Envie seus dados para receber.\" O que indica que pode ser um golpe?",
     "type": "text",
     "options": [
-      "() => {}",
-      "function() {}",
-      "def func():"
+      "A mensagem ser muito curta",
+      "Pedir dados pessoais inesperadamente",
+      "Ter uma foto",
+      "Usar emojis"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 3,
+    "question": "Antes de clicar em um link recebido por mensagem, qual é a atitude mais segura?",
+    "type": "text",
+    "options": [
+      "Clicar para descobrir o que é",
+      "Verificar o endereço e a origem do link",
+      "Encaminhar para outra pessoa",
+      "Abrir e fechar rapidamente"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 4,
+    "question": "Alguém envia uma mensagem dizendo ser seu amigo e pede dinheiro com urgência. O que fazer?",
+    "type": "text",
+    "options": [
+      "Enviar imediatamente",
+      "Confirmar a identidade da pessoa por outro meio",
+      "Pedir a chave Pix e enviar",
+      "Compartilhar a mensagem"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 5,
+    "question": "Você recebeu uma mensagem com um link, mas não sabe quem enviou. Qual deve ser sua primeira decisão?",
+    "type": "text",
+    "options": [
+      "Não clicar até verificar a origem",
+      "Clicar e depois verificar",
+      "Baixar o arquivo enviado",
+      "Compartilhar com alguém"
     ],
     "correct": 0
   }
