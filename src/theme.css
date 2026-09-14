@@ -28,7 +28,7 @@ main.blur{
 .quiz-container {
     background: rgb(29, 31, 55);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 3px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
     width: 100%;
     max-width: 500px;
@@ -177,8 +177,9 @@ main.blur{
 .quiz-container {
     background: rgb(29, 31, 55);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+    border: 1.5px solid #7a7a7a8a;
     width: 100%;
     max-width: 500px;
 }
@@ -425,6 +426,7 @@ main.blur{
         line-height: 1.5;
     }
 }
+
 
 
 @media (max-width: 380px) {
