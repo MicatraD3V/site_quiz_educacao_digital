@@ -1,8 +1,9 @@
 const STATIONS = [
-    { id: "Estação 1", title: "Estação 1: Fundamentos", file: "models/estacao1.json" },
-    { id: "Estação 2", title: "Estação 2: Imagens e Identificação", file: "models/estacao2.json" },
-    { id: "Estação 3", title: "Estação 3: Aplicativo Curioso", file: "models/estacao3.json" },
-    { id: "Estação 5", title: "Estação 5: Postar ou não", file: "models/estacao5.json" }
+    { id: "Estação 1", title: "Estação 1: A Senha Vazou", file: "models/estacao1.json" },
+    { id: "Estação 2", title: "Estação 2: Não Clique!", file: "models/estacao2.json" },
+    { id: "Estação 3", title: "Estação 3: O Aplicativo Curioso", file: "models/estacao3.json" },
+    { id: "Estação 4", title: "Estação 4 Não Acredite nos Seus Olhos", file: "models/estacao4.json" },
+    { id: "Estação 5", title: "Estação 5: Postar ou não Postar?", file: "models/estacao5.json" },
 ];
 let questions = [];
 const TIME = 40;
@@ -38,8 +39,6 @@ async function loadStation(index) {
     const station = STATIONS[currentStationIndex];
     if (!station)
         return;
-    document.body.className = "";
-    document.body.classList.add(`estacao-${station.id.replace("Estação ", "")}`);
     if (quizTitle)
         quizTitle.innerText = station.title;
     try {
@@ -49,6 +48,9 @@ async function loadStation(index) {
         questions = await response.json();
         quizScreen?.classList.remove('hide');
         resultScreen?.classList.add('hide');
+        document.body.className = "";
+        const stationClass = `estacao-${station.id.replace("Estação ", "")}`;
+        document.body.classList.add(stationClass);
         startQuiz();
     }
     catch (error) {
@@ -125,7 +127,7 @@ function showPopUpResult(answer) {
     btn.textContent = "Ok";
     title.textContent = correct ? "Resposta Correta!" : "Resposta Incorreta";
     const streakFormat = streak > 1 ? "acertos" : "acerto";
-    message.textContent = correct ? `Sua sequência atual é de ${streak} ${streakFormat}` : "Mais sorte na próxima vez";
+    message.textContent = correct ? `Sua Sequência atual é de ${streak} ${streakFormat}` : "Mais sorte na próxima vez";
     popup.appendChild(title);
     popup.appendChild(message);
     popup.appendChild(btn);
@@ -158,7 +160,6 @@ function showResults() {
         return;
     quizScreen?.classList.add("hide");
     resultScreen?.classList.remove("hide");
-    
     sessionScores[currentStation.id] = score;
     if (finalScoreElement) {
         finalScoreElement.innerText = `Você acertou ${score} questões de ${questions.length} nesta etapa.`;
@@ -175,7 +176,7 @@ function showResults() {
             if (resultsElement)
                 resultsElement.innerText = formatSessionScores();
             nextBtn.onclick = () => {
-                sessionScores = {}; 
+                sessionScores = {};
                 if (resultsElement)
                     resultsElement.innerText = "";
                 loadStation(0);
