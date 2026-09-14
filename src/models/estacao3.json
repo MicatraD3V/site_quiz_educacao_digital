@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "question": "Um jogo pede acesso à sua localização. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito, se a localização for realmente necessária para o jogo.",
+      "Não aceito."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 2,
+    "question": "Um app de lanterna pede acesso aos seus contatos. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito.",
+      "Não aceito, pois uma lanterna não precisa dos seus contatos."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 3,
+    "question": "Um aplicativo de edição de fotos pede acesso à sua galeria. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito, se for necessário para escolher e editar suas fotos.",
+      "Não aceito."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 4,
+    "question": "Um jogo pede acesso ao microfone sem explicar o motivo. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito.",
+      "Não aceito, porque o aplicativo deve explicar por que precisa dessa permissão."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 5,
+    "question": "Um app de mapas pede sua localização enquanto você o utiliza. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito, pois a localização é necessária para mostrar sua posição e traçar rotas.",
+      "Não aceito."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 6,
+    "question": "Um aplicativo pede acesso à câmera sem precisar tirar fotos. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito.",
+      "Não aceito, porque não há motivo aparente para usar a câmera."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 7,
+    "question": "Um app desconhecido solicita acesso aos seus arquivos. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito.",
+      "Não aceito, principalmente por ser um aplicativo desconhecido."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 8,
+    "question": "Um aplicativo pede acesso aos seus contatos para funcionar. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito, se essa função realmente depender dos contatos.",
+      "Não aceito, a menos que essa função realmente dependa dos contatos."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 9,
+    "question": "Um jogo gratuito solicita sua localização mesmo quando está fechado. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito.",
+      "Não aceito, se não houver uma função que justifique a localização em segundo plano."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 10,
+    "question": "Um aplicativo pede várias permissões sem explicar para que servem. Aceito ou não aceito?",
+    "type": "text",
+    "options": [
+      "Aceito.",
+      "Não aceito, pois devemos entender quais dados o aplicativo está acessando e por quê."
+    ],
+    "correct": 1
+  }
+]
